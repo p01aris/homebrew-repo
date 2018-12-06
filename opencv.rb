@@ -85,11 +85,11 @@ class Opencv < Formula
 
       mkdir "build" do
         system "cmake", "..", *args
-        system "make"
+        system "make -j$(sysctl -n hw.physicalcpu)"
         system "make", "install"
         system "make", "clean"
         system "cmake", "..", "-DBUILD_SHARED_LIBS=OFF", *args
-        system "make"
+        system "make -j$(sysctl -n hw.physicalcpu)"
         lib.install Dir["lib/*.a"]
         lib.install Dir["3rdparty/**/*.a"]
       end
