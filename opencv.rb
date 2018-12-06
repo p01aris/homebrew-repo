@@ -19,8 +19,8 @@ class Opencv < Formula
     depends_on "gcc"
   
     resource "contrib" do
-      url "https://github.com/opencv/opencv/archive/4.0.0.tar.gz"
-      sha256 "3787b3cc7b21bba1441819cb00c636911a846c0392ddf6211d398040a1e4886c"
+      url "https://github.com/opencv/opencv_contrib/archive/4.0.0.tar.gz"
+      sha256 "4fb0681414df4baedce6e3f4a01318d6f4fcde6ee14854d761fd4e397a397763"
     end
   
     needs :cxx11
@@ -75,14 +75,14 @@ class Opencv < Formula
         -DPYTHON3_EXECUTABLE=#{which "python3"}
         -DPYTHON3_LIBRARY=#{py3_config}/libpython#{py3_version}.dylib
         -DPYTHON3_INCLUDE_DIR=#{py3_include}
-        #-DOPENCV_EXTRA_MODULES_PATH=#{buildpath}/opencv_contrib/modules
+        -DOPENCV_EXTRA_MODULES_PATH=#{buildpath}/opencv_contrib/modules
       ]
   
       if build.bottle?
         args += %w[-DENABLE_SSE41=OFF -DENABLE_SSE42=OFF -DENABLE_AVX=OFF
                    -DENABLE_AVX2=OFF]
       end
-  
+
       mkdir "build" do
         system "cmake", "..", *args
         system "make"
