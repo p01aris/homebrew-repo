@@ -55,7 +55,6 @@ class Opencv < Formula
         -DBUILD_opencv_java=OFF
         -DBUILD_opencv_text=OFF
         -DOPENCV_ENABLE_NONFREE=ON
-        -DOPENCV_EXTRA_MODULES_PATH=#{buildpath}/opencv_contrib/modules
         -DWITH_1394=OFF
         -DWITH_CUDA=OFF
         -DWITH_EIGEN=ON
@@ -70,13 +69,13 @@ class Opencv < Formula
         -DWITH_VTK=OFF
         -DBUILD_opencv_python2=ON
         -DBUILD_opencv_python3=ON
-        -DCMAKE_CXX_COMPILER=/usr/local/gcc-8.2/bin/g++-8.2
         -DPYTHON2_EXECUTABLE=#{which "python"}
         -DPYTHON2_LIBRARY=#{py2_lib}/libpython2.7.dylib
         -DPYTHON2_INCLUDE_DIR=#{py2_prefix}/include/python2.7
         -DPYTHON3_EXECUTABLE=#{which "python3"}
         -DPYTHON3_LIBRARY=#{py3_config}/libpython#{py3_version}.dylib
         -DPYTHON3_INCLUDE_DIR=#{py3_include}
+        #-DOPENCV_EXTRA_MODULES_PATH=#{buildpath}/opencv_contrib/modules
       ]
   
       if build.bottle?
