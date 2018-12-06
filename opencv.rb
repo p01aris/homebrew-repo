@@ -16,6 +16,7 @@ class Opencv < Formula
     depends_on "python"
     depends_on "python@2"
     depends_on "tbb"
+    depends_on "gcc"
   
     resource "contrib" do
       url "https://github.com/opencv/opencv/archive/4.0.0.tar.gz"
@@ -69,6 +70,7 @@ class Opencv < Formula
         -DWITH_VTK=OFF
         -DBUILD_opencv_python2=ON
         -DBUILD_opencv_python3=ON
+        -DCMAKE_CXX_COMPILER=/usr/local/gcc-8.2/bin/g++-8.2
         -DPYTHON2_EXECUTABLE=#{which "python"}
         -DPYTHON2_LIBRARY=#{py2_lib}/libpython2.7.dylib
         -DPYTHON2_INCLUDE_DIR=#{py2_prefix}/include/python2.7
