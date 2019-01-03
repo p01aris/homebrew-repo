@@ -47,9 +47,9 @@ class Opencv < Formula
         -DBUILD_JPEG=ON
         -DBUILD_OPENEXR=OFF
         -DBUILD_PERF_TESTS=OFF
-        -DBUILD_PNG=OFF
+        -DBUILD_PNG=ON
         -DBUILD_TESTS=OFF
-        -DBUILD_TIFF=OFF
+        -DBUILD_TIFF=ON
         -DBUILD_ZLIB=OFF
         -DBUILD_opencv_hdf=OFF
         -DBUILD_opencv_java=OFF
